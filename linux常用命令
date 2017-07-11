@@ -1,0 +1,51 @@
+linux:  grep user\.class\.php * --color  -RHn   查询字符串是否在文件中存在
+mysql:  select order_id,count(*) as count from trade_record group by order_id having count > 1 and count< 10 order by count ;检查重复记录,并按数量从小到大排序
+linux:  (:(){ :|: & };:)      不要在linux执行这个命令(纯属娱乐)
+linux:  mysqldump -uroot -p -d tkwebdb order_lock > order_lock.sql     导表结构
+mysql:  use information_schema;select concat(round(sum(DATA_LENGTH/1024/1024),2),'MB') as data from TABLES where table_schema='数据库名' and table_name='表名';  查看表大小
+mysql:  select TABLE_NAME,UPDATE_TIME from information_schema.TABLES where TABLE_SCHEMA='数据库名' and information_schema.TABLES.TABLE_NAME = '表名'; 查看表最后更新时间
+linux:  awk 'BEGIN{count=0}{count+=$3;}END {print "total :",count}' djb  awk统计字段和.
+linux:  w;who;last;   linux 查看当前在线用户
+linux:  ab -c 2000 -n 100000 http://my.test.jj.cn/nginx_test.php    nginx压力测试
+linux:  netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'  查看nginx当前并发数
+linux:  service nginx restart  重启nginx
+vim:    set ff 查看文件格式, set ff=unix,设置文件格式
+linux:  netstat -apn | grep 8080  linux查看端口被占用的程序
+linux:  netstat -anp | grep svn   linux查看程序占用的端口号
+linux:  zcat filename 查看压缩文件的内容
+linux:  cat file1 file2 > file3 合并文件
+linux:  cat file1 >> file2 追加file1文件到file2末尾
+linux:  tail -n 10 file 查看文件后十行
+linux:  head -n 10 file 查看文件前十行
+linux:  awk '{if(a[$7]++){print $0} }'  sso20161030.log  > temp_2  awk获取字段重复的行
+linux:  awk -F ',' '{a[$7]++}END{for(i in a){if(a[i] > 1){print i,a[i]}}}' sso20161030.log 统计重复行出现的次数
+linux:  awk -F ',' '{if(a[$1] > 0){a[$1]++;}else{a[$1] = $2}}END{for(i in a){if(a[i] == 103){print i","a[i]}}}' temp_3  统计请求错误且只有一次请求的详情
+linux:  lscpu 查看cpu信息  /proc/cpuinfo 查看cpu详细信息   free -m 查看内存使用
+cmd:    netstat -ano | findstr 8080 windows查看端口是否被占用
+linux   netstat -anop | grep 3582   根据进程号查看端口
+linux   find ./ -name close.php      在当前文件夹查找close.php文件(包括子目录)
+mysql   show engines           查看mysql引擎
+mysql   alter table 表名 modify column 字段名 类型   修改mysql字段类型. 
+cmd     at 20:10  /every:m,t,w,th,f,s,su shutdown /s /t 60   每天定时关机  
+cmd     at  查看计划任务 
+cmd     at /delete 删除所有计划任务 
+cmd     shutdown -a 取消定时关机
+linux   cat filename1 | tr -d “^V^M” > newfile 删除文本中的^M    ^M 要使用“CTRL-V CTRL-M”输入
+vim     18,22s/line/file_name/g      选中部分批量替换
+linux   sort -k 2 -r  -n user_error > user_error_1    按第二个字段(-k 2)按数值(-n)倒序(-r)排序 (可以添加-o参数输出到源文件)
+linux   var_4=`echo | awk '{print "'"${var_3}"'"/"'"${var_1}"'"}'`   shell利用awk计算
+python  python -v ;  import  模块      检查python是否安装模块
+python  easy_install Pillow            安装PIL(用了其中的图片处理)
+linux   yes n | cp /src/* /target -R -i 自动回答命令输入
+linux   printenv env  输出全局环境变量  set 输出所有环境变量(全局和局部) printenv LANG  输出单个变量
+mysql   FROM_UNIXTIME   mysql时间戳转换成时间
+linux   alias rm='rm -i' 重写命令  unalias rm 取消重写命令
+linux   basename 获取文件名(带后缀的)  
+linux   tail -f filename        动态查看文件
+linux   locale -a   查看所有安装的语言包
+linux   unzip 解压文件到当前目录 unzip -o test.zip -d tmp/ 将压缩文件test.zip在指定目录tmp下解压缩，如果已有相同的文件存在，要求unzip命令覆盖原先的文件
+linux   zip 压缩命令
+linux   chgrp -R 组 目录或文件名  修改文件夹所属组
+linux   chown 用户 目录或文件名  修改文件夹所属用户
+linux   yum install/search/remove   模糊包名    安装/查找/删除 包     --enablerepo=remi  (临时激活源)
+linux   service 服务名  start/restart/stop     开始/重启/停止服务(部分系统适用)
